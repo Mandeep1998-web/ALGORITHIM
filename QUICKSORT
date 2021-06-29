@@ -1,0 +1,37 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+int swap(int *i,int *j)
+{
+int temp=*i;
+*i=*j;
+*j=temp;
+}
+int Partition(int arr[],int l,int h)
+{
+    int i,j;
+   int  pivot=arr[i];
+    i=l;
+    j=h;
+    do{
+        do{i++;}while(arr[i]<=pivot);
+        do{j--;}while(arr[j]>pivot);
+        if(i<j)swap(&arr[i],&arr[j]);
+    }while(i<j);
+       
+    swap(&arr[i],&arr[j]);
+    return j;
+}
+void Quicksort(int arr[],int l,int h){
+    if(l<h){
+        int j=Partition(arr,l,h);
+        Quicksort(arr,l,j);
+        Quicksort(arr,j+1,h);
+    }
+}
+int main(){
+    int arr[]={11,13,7,12,16,9,24,5,10,3,65535},n=11,i; // we can use 65,535 as max value
+    Quicksort(arr,0,10);
+    for(int i=0;i<10;i++){
+        printf(" %d",arr[i]);
+    }
+}
