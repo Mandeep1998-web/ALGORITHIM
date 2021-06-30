@@ -1,0 +1,26 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+void Selection_Sort(int A[],int n){
+    for(int i=0;i<n-1;i++)// we need to n-2 passes
+       {
+        int imin=i;
+        int j;
+        for( j=i+1;j<n;j++){
+            if(A[j]<A[imin]){
+                imin=j;//update the index of minimum element
+            }
+        }
+      int temp=A[i];
+      A[i]=A[imin];
+      A[imin]=temp;
+        
+       } 
+    }
+int main() {
+    // Write C code here
+   int A[]={12,22,11,2,33,4};
+   Selection_Sort(A,6);
+   for(int i=0;i<6;i++){
+       printf(" %d",A[i]);
+   }
+}
