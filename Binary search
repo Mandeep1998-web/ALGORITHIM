@@ -1,0 +1,31 @@
+/* binary search */
+
+#include <stdio.h>
+int bin(int arr[],int first,int n,int tosearch){
+    int mid=(first+n)/2;
+    if(n==1){
+        return 1;
+    }
+    if(arr[mid]==tosearch){
+        return mid+1;
+    }
+     if(arr[mid]>tosearch){
+        return bin(arr,first,mid,tosearch);
+    }
+     if(arr[mid]<tosearch){
+        return bin(arr,mid,n,tosearch);
+    }
+}
+
+int main()
+{
+    int arr[10]={3,4,5,6,7,8,9,88,111,9999};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    int tosearch=4;
+  //printf("%d",n);
+    int first=0;
+    int result=bin(arr,first,n,tosearch);
+    printf("the location of the target item is %d",result);
+
+    return 0;
+}
